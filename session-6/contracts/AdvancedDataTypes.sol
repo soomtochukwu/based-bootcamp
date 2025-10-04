@@ -1,20 +1,43 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.20;
+pragma solidity ^0.8.0;
 
+// Contract demonstrating advanced data types
 contract AdvancedDataTypes {
-    // Dynamic array
-    uint256[] public numbers;
+    // String: Variable-length UTF-8 encoded string
+    string public message;
 
-    // Fixed-size array
-    uint256[3] public fixedNumbers = [1, 2, 3];
+    // Bytes: Dynamic byte array
+    bytes public data;
 
-    // Bytes (used for raw data)
-    bytes public data = "Hello";
+    // Fixed-size byte array (32 bytes)
+    bytes32 public fixedData;
 
-    // Ethereum address
-    address public myAddress = msg.sender;
+    // Constructor to initialize data
+    constructor() {
+        message = "Hello, Solidity!";
+        data = hex"123456";
+        fixedData = keccak256(abi.encodePacked("fixed"));
+    }
 
-    function addNumber(uint256 num) public {
-        numbers.push(num);
+    // Function to update string
+    function setMessage(string memory _message) public {
+        message = _message;
+    }
+
+    // Function to update bytes
+    function setData(bytes memory _data) public {
+        data = _data;
+    }
+
+    // Function to update fixed-size bytes
+    function setFixedData(bytes32 _fixedData) public {
+        fixedData = _fixedData;
     }
 }
+
+/* 
+Advanced Data Types Explained:
+- String: Used for text data (e.g., "Hello, Solidity!")
+- Bytes: Dynamic array for raw byte data
+- Bytes32: Fixed-size 32-byte array, useful for hashes or identifiers
+*/
