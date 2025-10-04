@@ -1,3 +1,8 @@
+/* 
+USAGE
+~$ npx hardhat run scripts/deploy.ts --network base-sepolia
+*/
+
 const hre = require("hardhat");
 const { verify } = require("../utils/verify.js");
 require("dotenv").config();
