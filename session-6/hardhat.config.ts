@@ -14,7 +14,7 @@ const config = {
     },
   },
   etherscan: {
-    apiKey: process.env.base_API_Key as string,
+    apiKey: process.env.etherscan_API_KEY as string,
     customChains: [
       {
         network: "base-sepolia",
